@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PI" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ebce7051-8341-44dd-a0c0-6cad1c45118c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT 
+    i.i_id, 
+    p.first_name, 
+    p.last_name, 
+    i.amount, 
+    i.payment_status
+FROM 
+    hwa.invoices i
+JOIN 
+    hwa.Patients p ON i.p_id = p.p_id
+WHERE 
+    i.payment_status = 'Pending'
+ORDER BY 
+    i.amount DESC]]>
+	</queryString>
+	<field name="i_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="i_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="i_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoices"/>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="patients"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="patients"/>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoices"/>
+	</field>
+	<field name="payment_status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="payment_status"/>
+		<property name="com.jaspersoft.studio.field.label" value="payment_status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoices"/>
+	</field>
+	<title>
+		<band height="289" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="-50" width="595" height="339" uuid="ca7d08a6-d8d4-47d2-9fae-acf7f2e081a4"/>
+				<imageExpression><![CDATA["image/Screenshot 2023-12-25 150632.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="338" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="-10" width="595" height="329" uuid="d0e2b01f-6e7e-474c-aa53-df626e642ae2"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<imageExpression><![CDATA["image/luxa.org-opacity-changed-Screenshot 2023-12-08 001809 (1).png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="10" y="40" width="100" height="30" uuid="719063b3-73e6-45b7-b06a-0f08045c9c74"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="197" y="40" width="100" height="30" uuid="06ed4e44-1c01-447b-8d6d-d8fffe09bd9c"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{i_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="96" width="160" height="34" uuid="2c528e2d-c6bc-4937-a020-3217c29c90e5"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{first_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="100" width="130" height="30" uuid="5fdb19da-c8df-4fd8-8acc-ccd2d84158f6"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[First_name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="197" y="149" width="190" height="35" uuid="68ba6612-6e88-4dd0-96a2-39f13bc80ee3"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="154" width="130" height="30" uuid="e9d1d3c3-60f1-4e62-af1d-de7990e1bbbf"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last_name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="210" width="210" height="30" uuid="cda41514-bd2b-4475-b862-b549421af10b"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}+"$"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="210" width="100" height="30" uuid="c51e1f9e-dfb4-487a-b042-34cc3ad9a7c3"/>
+				<textElement>
+					<font size="22" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Amount:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="270" width="240" height="30" uuid="1fcf2838-0b81-46a2-b7a5-c0bf5100beb4"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="270" width="190" height="30" uuid="9e169fd3-82be-41bb-8f5f-ca5bb100c8dc"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment_status:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="390" y="-10" width="185" height="149" uuid="43763d07-a470-41b1-9703-84b6a3c9c7e7"/>
+				<imageExpression><![CDATA["image/5462748-removebg-preview.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
